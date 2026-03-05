@@ -1,0 +1,25 @@
+apiVersion: 1
+
+deleteDatasources:
+  - name: TimescaleDB
+    orgId: 1
+
+datasources:
+  - name: TimescaleDB
+    uid: timescaledb-ds
+    type: postgres
+    access: proxy
+    url: timescaledb:5432
+    database: cancela_db
+    user: cancela
+    secureJsonData:
+      password: cancela123
+    jsonData:
+      sslmode: disable
+      maxOpenConns: 5
+      maxIdleConns: 2
+      connMaxLifetime: 14400
+      postgresVersion: 1700
+      timescaledb: true
+    isDefault: true
+    editable: true
