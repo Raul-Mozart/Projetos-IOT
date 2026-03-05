@@ -61,9 +61,9 @@ app.add_middleware(
 # --- Helpers ---
 
 
-def unix_to_br(timestamp_str: str) -> datetime:
-    """Converte Unix timestamp (string) para datetime no fuso de Brasília."""
-    ts = int(timestamp_str)
+def unix_to_br(timestamp_val: str | int) -> datetime:
+    """Converte Unix timestamp (string ou int) para datetime no fuso de Brasília."""
+    ts = int(timestamp_val)
     return datetime.fromtimestamp(ts, tz=BR_TZ)
 
 
@@ -72,7 +72,7 @@ def unix_to_br(timestamp_str: str) -> datetime:
 
 class EventoCancela(BaseModel):
     deviceId: str
-    timestamp: str
+    timestamp: str | int
     distancia: float
     cancelaAberta: bool
     tempoAbertura: int

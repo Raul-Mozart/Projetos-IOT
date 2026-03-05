@@ -205,7 +205,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT MAX(\"timestamp\") AS \"Último Evento\" FROM eventos_cancela WHERE $__timeFilter(\"timestamp\");",
+          "rawSql": "SELECT EXTRACT(EPOCH FROM MAX(\"timestamp\"))::bigint * 1000 AS \"Último Evento\" FROM eventos_cancela WHERE $__timeFilter(\"timestamp\");",
           "refId": "A"
         }
       ]
